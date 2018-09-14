@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="1" name="bookstore.BookRestTest" time="0.882" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
+    <property name="java.vm.version" value="25.181-b13"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Dev\Tutorial JavaEE\bookstore-back\bookstore"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\Dev\Tutorial JavaEE\bookstore-back\bookstore"/>
+    <property name="java.runtime.version" value="1.8.0_181-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\RAZVAN~1.PAR\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="D:\Dev\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7485555485869999884.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_181\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files\Docker\Docker\Resources\bin;C:\Scripts\;C:\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python27\DLLs;C:\Python27\Lib;D:\apache-cassandra-3.11.3;D:\apache-cassandra-3.11.3\bin;C:\Python27;D:\spark-2.3.1-bin-hadoop2.7\bin;D:\hadoop-2.8.0\bin\bin;C:\Program Files (x86)\scala\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\GitExtensions\;%KAFKA_HOME%;%CONFLUENCE_HOME%\bin;D:\apache-maven-3.5.4\bin;C:\HashiCorp\Vagrant\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_181\bin;D:\spark-2.3.1-bin-hadoop2.7;D:\hadoop-3.1.1\share\hadoop\yarn;D:\hadoop-2.8.0\bin;%WILDFLY%;C:\Users\razvan.parautiu\AppData\Local\Microsoft\WindowsApps;;C:\Users\razvan.parautiu\eclipse\jee-photon\eclipse;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\razvan.parautiu"/>
+    <property name="user.timezone" value="Europe/Athens"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="razvan.parautiu"/>
+    <property name="java.class.path" value="C:\Users\razvan.parautiu\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.9.1.20180704-1404\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_181\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_181"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\Dev\Tutorial JavaEE\bookstore-back\bookstore\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="bookstore.BookRestTest" name="testCreateRest" time="0.882">
+    <failure message="expected:&lt;405&gt; but was:&lt;201&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;405&gt; but was:&lt;201&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at bookstore.BookRestTest.testCreateRest(BookRestTest.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.jboss.arquillian.junit.Arquillian$8$1.invoke(Arquillian.java:379)
+	at org.jboss.arquillian.container.test.impl.execution.LocalTestExecuter.execute(LocalTestExecuter.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:103)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:85)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:143)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:114)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.execution.ClientTestExecuter.execute(ClientTestExecuter.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:103)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:85)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.createContext(ContainerEventController.java:142)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.createTestContext(ContainerEventController.java:129)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:143)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.test(EventTestRunnerAdaptor.java:136)
+	at org.jboss.arquillian.junit.Arquillian$8.evaluate(Arquillian.java:372)
+	at org.jboss.arquillian.junit.Arquillian$4.evaluate(Arquillian.java:246)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:431)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:55)
+	at org.jboss.arquillian.junit.Arquillian$5.evaluate(Arquillian.java:260)
+	at org.jboss.arquillian.junit.Arquillian$7$1.invoke(Arquillian.java:324)
+	at org.jboss.arquillian.container.test.impl.execution.ClientBeforeAfterLifecycleEventExecuter.execute(ClientBeforeAfterLifecycleEventExecuter.java:99)
+	at org.jboss.arquillian.container.test.impl.execution.ClientBeforeAfterLifecycleEventExecuter.on(ClientBeforeAfterLifecycleEventExecuter.java:72)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:103)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:85)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.createContext(ContainerEventController.java:142)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.createBeforeContext(ContainerEventController.java:124)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:92)
+	at sun.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:73)
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createTestContext(TestContextHandler.java:130)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:96)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:92)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:143)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:114)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.fireCustomLifecycle(EventTestRunnerAdaptor.java:159)
+	at org.jboss.arquillian.junit.Arquillian$7.evaluate(Arquillian.java:317)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:205)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:431)
+	at org.jboss.arquillian.junit.Arquillian.access$200(Arquillian.java:55)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:219)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:167)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-err>Sep 13, 2018 3:58:42 PM org.jboss.arquillian.core.impl.ObserverImpl resolveArguments
+WARNING: Argument 2 for ArquillianServiceDeployer.doServiceDeploy is null. It won&apos;t be invoked.
+</system-err>
+  </testcase>
+</testsuite>
