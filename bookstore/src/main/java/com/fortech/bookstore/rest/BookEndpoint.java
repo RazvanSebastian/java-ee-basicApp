@@ -18,10 +18,9 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
 import com.fortech.bookstore.model.Book;
-import com.fortech.bookstore.repository.BookRepository;
+import com.fortech.bookstore.repository.BookService;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -32,7 +31,7 @@ import io.swagger.annotations.ApiResponses;
 public class BookEndpoint {
 
 	@Inject
-	private BookRepository bookRepository;
+	private BookService bookService;
 
 	@GET
 	@Path("/count")
@@ -42,7 +41,7 @@ public class BookEndpoint {
 		@ApiResponse(code = 200, message = "The number of books")
 	})
 	public Response getCountAll() {
-		return Response.ok(bookRepository.countAll(),MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
+		return Response.ok(bookService.countAll(),MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
 	}
 
 	@GET
@@ -51,7 +50,7 @@ public class BookEndpoint {
 	@ApiResponses({ @ApiResponse(code = 200, message = "Return all books"),
 			@ApiResponse(code = 204, message = "Empty list if in database the book table is empty") })
 	public Response getBooks() {
-		List<Book> list = bookRepository.findAll();
+		List<Book> list = bookService.findAll();
 		if (list.isEmpty())
 			return Response.status(Response.Status.NO_CONTENT).build();
 		return Response.ok(list).status(Response.Status.OK).build();
@@ -64,8 +63,8 @@ public class BookEndpoint {
 	@ApiResponses({ @ApiResponse(code = 200, message = "Return the book"),
 			@ApiResponse(code = 204, message = "The book not found"),
 			@ApiResponse(code = 400, message = "Invalid id value") })
-	public Response getBook(@ApiParam(name = "Book identifier", required = true) @PathParam(value = "id") Long id) {
-		Book book = bookRepository.find(id);
+	public Response getBook(@PathParam(value = "id") Long id) {
+		Book book = bookService.find(id);
 		if (book == null)
 			return Response.status(Response.Status.NO_CONTENT).build();
 
@@ -77,8 +76,8 @@ public class BookEndpoint {
 	@ApiOperation(value = "Delete a book by identifier")
 	@ApiResponses({ @ApiResponse(code = 204, message = "Book delete success"),
 			@ApiResponse(code = 400, message = "Invalid id value") })
-	public Response deleteBook(@ApiParam(name = "Book identifier", required = true) @PathParam(value = "id") Long id) {
-		bookRepository.delete(id);
+	public Response deleteBook(@PathParam(value = "id") Long id) {
+		bookService.delete(id);
 		return Response.status(Response.Status.NO_CONTENT).build();
 	}
 
@@ -88,7 +87,7 @@ public class BookEndpoint {
 	@ApiResponses({ @ApiResponse(code = 201, message = "Book persisted"),
 			@ApiResponse(code = 500, message = "Invalid book"), })
 	public Response save(@ApiParam(name = "Book to persist", required = true) Book book, @Context UriInfo uriInfo) {
-		book = bookRepository.create(book);
+		book = bookService.create(book);
 		System.out.println(uriInfo.getPath());
 		URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(book.getId())).build();
 		return Response.created(uri).status(Status.CREATED).build();

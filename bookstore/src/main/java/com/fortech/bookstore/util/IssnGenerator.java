@@ -4,10 +4,10 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
-import com.fortech.bookstore.util.cdi_qualifier.ThirteenDigits;
+import com.fortech.bookstore.util.cdi_qualifier.EightDigits;
 
-@ThirteenDigits
-public class IsbnGenerator implements NumberGenerator {
+@EightDigits
+public class IssnGenerator implements NumberGenerator{
 
 	private int postfix;
 
@@ -19,7 +19,7 @@ public class IsbnGenerator implements NumberGenerator {
 	@Override
 	public String generateNumber() {
 		// TODO Auto-generated method stub
-		return "13-5677-" + postfix++;
+		return "8-" + postfix++;
 	}
 
 }

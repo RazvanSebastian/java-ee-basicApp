@@ -15,16 +15,22 @@ import javax.validation.constraints.NotNull;
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
+import com.fortech.bookstore.util.cdi_qualifier.EightDigits;
+import com.fortech.bookstore.util.cdi_qualifier.Loggable;
+import com.fortech.bookstore.util.cdi_qualifier.ThirteenDigits;
 
-public class BookRepository {
+@Loggable
+public class BookService {
 
 	@PersistenceContext(unitName = "bookStorePU")
 	private EntityManager entityManager;
 
 	@Inject
 	private TextUtil textUtil;
-	
+
 	@Inject
+	// @ThirteenDigits
+	@EightDigits
 	private NumberGenerator generator;
 
 	@Transactional(value = TxType.REQUIRED)

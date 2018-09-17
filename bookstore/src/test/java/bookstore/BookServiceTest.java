@@ -20,27 +20,27 @@ import org.junit.runner.RunWith;
 
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.model.Language;
-import com.fortech.bookstore.repository.BookRepository;
+import com.fortech.bookstore.repository.BookService;
 import com.fortech.bookstore.util.IsbnGenerator;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
 
 @RunWith(Arquillian.class)
-public class BookRepositoryTest {
+public class BookServiceTest {
 
 	@Inject
-	private BookRepository bookRepository;
+	private BookService bookService;
 
 	@Test
 	public void createTest() {
-		bookRepository.deleteAll();
+		bookService.deleteAll();
 
-		assertEquals(0, bookRepository.findAll().size());
-		assertEquals(Long.valueOf(0), bookRepository.countAll());
+		assertEquals(0, bookService.findAll().size());
+		assertEquals(Long.valueOf(0), bookService.countAll());
 
 		// Create book
 		Book book = new Book("Javaa    Book", "bla  bla", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH);
-		book = bookRepository.create(book);
+		book = bookService.create(book);
 		Long id = book.getId();
 		
 		//check isbn number
@@ -54,52 +54,52 @@ public class BookRepositoryTest {
 		assertNotNull(id);
  
 		// Find book
-		Book bookfound = bookRepository.find(id);
+		Book bookfound = bookService.find(id);
 		assertEquals(bookfound.getTitle(), book.getTitle());
 
 		// Test counting books
-		assertEquals(Long.valueOf(1), bookRepository.countAll());
+		assertEquals(Long.valueOf(1), bookService.countAll());
 
 		// Test find all
-		assertEquals(1, bookRepository.findAll().size());
+		assertEquals(1, bookService.findAll().size());
 
 		// Test delete book
-		bookRepository.delete(id);
-		assertTrue(bookRepository.find(id) == null);
+		bookService.delete(id);
+		assertTrue(bookService.find(id) == null);
 
 	}
 
 	@Test(expected = Exception.class)
 	public void createBookWithInvalidDescription() {
-		bookRepository.deleteAll();
+		bookService.deleteAll();
 		// Create book
 		Book book = new Book("Javaa Book", "", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH);
-		bookRepository.create(book);
+		bookService.create(book);
 	}
 	
 	@Test(expected = Exception.class)
 	public void createBookWithInvalidTitle() {
-		bookRepository.deleteAll();
+		bookService.deleteAll();
 		// Create book
 		Book book = new Book(null, "bla bla", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH);
-		bookRepository.create(book);
+		bookService.create(book);
 	}
 
 	
 	@Test(expected = Exception.class)
 	public void createBookWithInvalidDate() {
-		bookRepository.deleteAll();
+		bookService.deleteAll();
 		// Create book
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)+1);
 		Book book = new Book("Title", "blabla", 12.5f, "isbn", calendar.getTime(), 150, "image", Language.ENGLISH);
-		bookRepository.create(book);
+		bookService.create(book);
 	}
 	
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
-				.addClass(BookRepository.class)
+				.addClass(BookService.class)
 				.addClass(Book.class)
 				.addClass(Language.class)
 				.addClass(TextUtil.class)
