@@ -96,6 +96,38 @@ public class BookServiceTest {
 		bookService.create(book);
 	}
 	
+	@Test
+	public void updateCostWithMethod1() {
+		bookService.deleteAll();
+		assertEquals(Long.valueOf(0), bookService.countAll());
+		
+		Book book = bookService.create( new Book("Title", "blabla", 12.5f, "isbn",new Date(), 150, "image", Language.ENGLISH));
+		assertEquals(Long.valueOf(1), bookService.countAll());
+		
+		float currentCost = book.getUnitCost();
+		Book updateBook = bookService.raiseUnitCost_method1(book.getId(), Float.valueOf(1));
+		
+		assertEquals(Float.valueOf(currentCost+1f),Float.valueOf(updateBook.getUnitCost()));
+		
+	}
+	
+	@Test
+	public void updateCostWithMethod2() {
+		bookService.deleteAll();
+		assertEquals(Long.valueOf(0), bookService.countAll());
+		
+		Book book = bookService.create( new Book("Title", "blabla", 12.5f, "isbn",new Date(), 150, "image", Language.ENGLISH));
+		assertEquals(Long.valueOf(1), bookService.countAll());
+		
+		float currentCost = book.getUnitCost();
+		Book updateBook = bookService.raiseUnitCost_method2(book, Float.valueOf(1));
+		
+		assertEquals(Float.valueOf(currentCost+1f),Float.valueOf(updateBook.getUnitCost()));
+		
+	}
+	
+	
+	
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)

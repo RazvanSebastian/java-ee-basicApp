@@ -1,6 +1,8 @@
 package com.fortech.bookstore.rest;
 
 import java.net.URI;
+
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -57,13 +59,13 @@ public class BookEndpoint {
 	}
 
 	@GET
-	@Path("/{id}")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiOperation(value = "Returns a book by id", response = Book.class)
 	@ApiResponses({ @ApiResponse(code = 200, message = "Return the book"),
 			@ApiResponse(code = 204, message = "The book not found"),
 			@ApiResponse(code = 400, message = "Invalid id value") })
-	public Response getBook(@PathParam(value = "id") Long id) {
+	public Response getBook(@PathParam("id") Long id) {
 		Book book = bookService.find(id);
 		if (book == null)
 			return Response.status(Response.Status.NO_CONTENT).build();
@@ -72,7 +74,7 @@ public class BookEndpoint {
 	}
 
 	@DELETE
-	@Path("/{id}")
+	@Path("{id}")
 	@ApiOperation(value = "Delete a book by identifier")
 	@ApiResponses({ @ApiResponse(code = 204, message = "Book delete success"),
 			@ApiResponse(code = 400, message = "Invalid id value") })
@@ -92,4 +94,6 @@ public class BookEndpoint {
 		URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(book.getId())).build();
 		return Response.created(uri).status(Status.CREATED).build();
 	}
+	
+	
 }

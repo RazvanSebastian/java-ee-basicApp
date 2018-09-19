@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
@@ -15,9 +14,8 @@ import javax.validation.constraints.NotNull;
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
-import com.fortech.bookstore.util.cdi_qualifier.EightDigits;
-import com.fortech.bookstore.util.cdi_qualifier.Loggable;
-import com.fortech.bookstore.util.cdi_qualifier.ThirteenDigits;
+import com.fortech.bookstore.util.annotation.EightDigits;
+import com.fortech.bookstore.util.annotation.Loggable;
 
 @Loggable
 public class BookService {
@@ -44,14 +42,33 @@ public class BookService {
 
 	@Transactional(value = TxType.REQUIRED)
 	public void delete(@NotNull Long id) {
-		Book book = entityManager.getReference(Book.class, id);
-		entityManager.remove(book);
+		Book book = entityManager.find(Book.class, id);
+		if (book != null)
+			entityManager.remove(book);
 	}
 
 	@Transactional(value = TxType.REQUIRED)
 	public void deleteAll() {
 		Query query = entityManager.createQuery("DELETE FROM Book");
 		query.executeUpdate();
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public Book raiseUnitCost_method1(Long id, Float value) {
+		Book book = entityManager.find(Book.class, id);
+		if (book != null) {
+			book.setUnitCost(book.getUnitCost() + value);
+		}
+
+		return book;
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public Book raiseUnitCost_method2(Book book, Float value) {
+		Book bookToUpdate = entityManager.merge(book);
+		bookToUpdate.setUnitCost(bookToUpdate.getUnitCost() + value);
+
+		return bookToUpdate;
 	}
 
 	@Transactional(value = TxType.SUPPORTS)

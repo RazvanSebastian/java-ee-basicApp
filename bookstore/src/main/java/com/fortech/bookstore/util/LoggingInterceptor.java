@@ -1,7 +1,5 @@
 package com.fortech.bookstore.util;
 
-import javax.inject.Inject;
-
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -9,7 +7,7 @@ import javax.interceptor.InvocationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fortech.bookstore.util.cdi_qualifier.Loggable;
+import com.fortech.bookstore.util.annotation.Loggable;
 
 @Loggable
 @Interceptor
@@ -17,7 +15,6 @@ public class LoggingInterceptor {
 	
 	private Logger logger;
 	
-	@Inject
 	public LoggingInterceptor() {
 		logger = LoggerFactory.getLogger(LoggingInterceptor.class);
 	}

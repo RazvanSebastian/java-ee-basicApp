@@ -1,4 +1,4 @@
-package com.fortech.bookstore.util.cdi_qualifier;
+package com.fortech.bookstore.util.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

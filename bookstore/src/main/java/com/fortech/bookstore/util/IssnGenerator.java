@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
-import com.fortech.bookstore.util.cdi_qualifier.EightDigits;
+import com.fortech.bookstore.util.annotation.EightDigits;
 
 @EightDigits
 public class IssnGenerator implements NumberGenerator{

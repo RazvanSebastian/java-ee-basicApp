@@ -13,11 +13,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import com.fortech.bookstore.util.annotation.ChronologicalDates;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @ApiModel(description = "Book representation resource")
+@ChronologicalDates
 public class Book {
 
 	private Long id;
@@ -31,6 +34,8 @@ public class Book {
 	private String isbn;
 
 	private Date publicationDate;
+
+	private Date creationDate;
 
 	private Integer ngOfPages;
 
@@ -144,6 +149,17 @@ public class Book {
 
 	public void setLanguage(Language language) {
 		this.language = language;
+	}
+
+	@Past
+	@Temporal(TemporalType.DATE)
+	@Column(name = "creation_date")
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	@Override

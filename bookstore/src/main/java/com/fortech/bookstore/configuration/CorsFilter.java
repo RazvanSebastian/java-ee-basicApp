@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(filterName = "HTML5CorsFilter", urlPatterns = {"/api/*"})
+@WebFilter(filterName = "HTML5CorsFilter", urlPatterns = {"/*"})
 public class CorsFilter implements Filter {
 
 	@Override

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
-import com.fortech.bookstore.util.cdi_qualifier.ThirteenDigits;
+import com.fortech.bookstore.util.annotation.ThirteenDigits;
 
 @ThirteenDigits
 public class IsbnGenerator implements NumberGenerator {
