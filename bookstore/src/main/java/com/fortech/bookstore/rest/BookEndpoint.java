@@ -2,7 +2,6 @@ package com.fortech.bookstore.rest;
 
 import java.net.URI;
 
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,6 +20,7 @@ import javax.ws.rs.core.UriInfo;
 
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.repository.BookService;
+import com.fortech.bookstore.repository.PurchaseOrderService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,15 +35,16 @@ public class BookEndpoint {
 	@Inject
 	private BookService bookService;
 
+	@Inject
+	private PurchaseOrderService orderService;
+
 	@GET
 	@Path("/count")
 	@Produces(MediaType.TEXT_PLAIN)
 	@ApiOperation(value = "Return the number of persisted books", response = Long.class)
-	@ApiResponses({
-		@ApiResponse(code = 200, message = "The number of books")
-	})
+	@ApiResponses({ @ApiResponse(code = 200, message = "The number of books") })
 	public Response getCountAll() {
-		return Response.ok(bookService.countAll(),MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
+		return Response.ok(bookService.countAll(), MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
 	}
 
 	@GET
@@ -94,6 +95,13 @@ public class BookEndpoint {
 		URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(book.getId())).build();
 		return Response.created(uri).status(Status.CREATED).build();
 	}
-	
-	
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/buy")
+	public Response purchaseOrder(List<Book> books) {
+		orderService.addItem(books);
+		return Response.status(Response.Status.NO_CONTENT).build();
+	}
+
 }
