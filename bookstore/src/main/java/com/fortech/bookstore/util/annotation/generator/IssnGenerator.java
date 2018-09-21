@@ -1,9 +1,10 @@
-package com.fortech.bookstore.util;
+package com.fortech.bookstore.util.annotation.generator;
 
 import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
+import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.annotation.EightDigits;
 
 @EightDigits

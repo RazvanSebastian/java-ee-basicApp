@@ -14,6 +14,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.fortech.bookstore.util.annotation.ChronologicalDates;
+import com.fortech.bookstore.util.annotation.URL;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -59,7 +60,7 @@ public class Book {
 		this.imageUrl = imageUrl;
 		this.language = language;
 	}
-
+	
 	@Id
 	@GeneratedValue
 	@ApiModelProperty("Identifier")

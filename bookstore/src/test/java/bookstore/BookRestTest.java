@@ -27,9 +27,9 @@ import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.model.Language;
 import com.fortech.bookstore.repository.BookService;
 import com.fortech.bookstore.rest.BookEndpoint;
-import com.fortech.bookstore.util.IsbnGenerator;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
+import com.fortech.bookstore.util.annotation.generator.IsbnGenerator;
 
 @RunWith(Arquillian.class)
 @RunAsClient

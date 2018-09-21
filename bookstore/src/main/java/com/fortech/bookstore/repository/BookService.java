@@ -15,6 +15,8 @@ import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
 import com.fortech.bookstore.util.annotation.EightDigits;
+import com.fortech.bookstore.util.annotation.Generator;
+import com.fortech.bookstore.util.annotation.Generator.NumberOfDigits;
 import com.fortech.bookstore.util.annotation.Loggable;
 
 @Loggable
@@ -27,8 +29,7 @@ public class BookService {
 	private TextUtil textUtil;
 
 	@Inject
-	// @ThirteenDigits
-	@EightDigits
+	@Generator(numberOfDigits = NumberOfDigits.THIRTEEN, printed = true)
 	private NumberGenerator generator;
 
 	@Transactional(value = TxType.REQUIRED)

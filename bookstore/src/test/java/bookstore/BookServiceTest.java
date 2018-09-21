@@ -21,9 +21,9 @@ import org.junit.runner.RunWith;
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.model.Language;
 import com.fortech.bookstore.repository.BookService;
-import com.fortech.bookstore.util.IsbnGenerator;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
+import com.fortech.bookstore.util.annotation.generator.IsbnGenerator;
 
 @RunWith(Arquillian.class)
 public class BookServiceTest {
@@ -42,17 +42,17 @@ public class BookServiceTest {
 		Book book = new Book("Javaa    Book", "bla  bla", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH);
 		book = bookService.create(book);
 		Long id = book.getId();
-		
-		//check isbn number
+
+		// check isbn number
 		assertTrue(book.getIsbn().startsWith("13"));
-		
-		//check if titile and description are sanitized
+
+		// check if titile and description are sanitized
 		assertFalse(book.getTitle().matches("(\\t)|(\\s{2,})"));
 		assertFalse(book.getDescription().matches("(\\t)|(\\s{2,})"));
-		
+
 		// chekc if book was persisted
 		assertNotNull(id);
- 
+
 		// Find book
 		Book bookfound = bookService.find(id);
 		assertEquals(bookfound.getTitle(), book.getTitle());
@@ -76,7 +76,7 @@ public class BookServiceTest {
 		Book book = new Book("Javaa Book", "", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH);
 		bookService.create(book);
 	}
-	
+
 	@Test(expected = Exception.class)
 	public void createBookWithInvalidTitle() {
 		bookService.deleteAll();
@@ -85,59 +85,53 @@ public class BookServiceTest {
 		bookService.create(book);
 	}
 
-	
 	@Test(expected = Exception.class)
 	public void createBookWithInvalidDate() {
 		bookService.deleteAll();
 		// Create book
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)+1);
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) + 1);
 		Book book = new Book("Title", "blabla", 12.5f, "isbn", calendar.getTime(), 150, "image", Language.ENGLISH);
 		bookService.create(book);
 	}
-	
+
 	@Test
 	public void updateCostWithMethod1() {
 		bookService.deleteAll();
 		assertEquals(Long.valueOf(0), bookService.countAll());
-		
-		Book book = bookService.create( new Book("Title", "blabla", 12.5f, "isbn",new Date(), 150, "image", Language.ENGLISH));
+
+		Book book = bookService
+				.create(new Book("Title", "blabla", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH));
 		assertEquals(Long.valueOf(1), bookService.countAll());
-		
+
 		float currentCost = book.getUnitCost();
 		Book updateBook = bookService.raiseUnitCost_method1(book.getId(), Float.valueOf(1));
-		
-		assertEquals(Float.valueOf(currentCost+1f),Float.valueOf(updateBook.getUnitCost()));
-		
+
+		assertEquals(Float.valueOf(currentCost + 1f), Float.valueOf(updateBook.getUnitCost()));
+
 	}
-	
+
 	@Test
 	public void updateCostWithMethod2() {
 		bookService.deleteAll();
 		assertEquals(Long.valueOf(0), bookService.countAll());
-		
-		Book book = bookService.create( new Book("Title", "blabla", 12.5f, "isbn",new Date(), 150, "image", Language.ENGLISH));
+
+		Book book = bookService
+				.create(new Book("Title", "blabla", 12.5f, "isbn", new Date(), 150, "image", Language.ENGLISH));
 		assertEquals(Long.valueOf(1), bookService.countAll());
-		
+
 		float currentCost = book.getUnitCost();
 		Book updateBook = bookService.raiseUnitCost_method2(book, Float.valueOf(1));
-		
-		assertEquals(Float.valueOf(currentCost+1f),Float.valueOf(updateBook.getUnitCost()));
-		
+
+		assertEquals(Float.valueOf(currentCost + 1f), Float.valueOf(updateBook.getUnitCost()));
+
 	}
-	
-	
-	
+
 	@Deployment
 	public static JavaArchive createDeployment() {
-		return ShrinkWrap.create(JavaArchive.class)
-				.addClass(BookService.class)
-				.addClass(Book.class)
-				.addClass(Language.class)
-				.addClass(TextUtil.class)
-				.addClass(NumberGenerator.class)
-				.addClass(IsbnGenerator.class)
-				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+		return ShrinkWrap.create(JavaArchive.class).addClass(BookService.class).addClass(Book.class)
+				.addClass(Language.class).addClass(TextUtil.class).addClass(NumberGenerator.class)
+				.addClass(IsbnGenerator.class).addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
 				.addAsManifestResource("META-INF/test-persistence.xml", "persistence.xml");
 	}
 
