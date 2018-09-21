@@ -1,6 +1,7 @@
 package com.fortech.bookstore.repository;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -14,13 +15,15 @@ import javax.validation.constraints.NotNull;
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
-import com.fortech.bookstore.util.annotation.EightDigits;
 import com.fortech.bookstore.util.annotation.Generator;
 import com.fortech.bookstore.util.annotation.Generator.NumberOfDigits;
 import com.fortech.bookstore.util.annotation.Loggable;
 
 @Loggable
 public class BookService {
+
+	@Inject
+	private Logger logger;
 
 	@PersistenceContext(unitName = "bookStorePU")
 	private EntityManager entityManager;
@@ -38,6 +41,7 @@ public class BookService {
 		book.setTitle(textUtil.sanitize(book.getTitle()));
 		book.setIsbn(generator.generateNumber());
 		entityManager.persist(book);
+		logger.info(" Create book : " + book.toString());
 		return book;
 	}
 

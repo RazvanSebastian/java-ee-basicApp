@@ -60,7 +60,7 @@ public class Book {
 		this.imageUrl = imageUrl;
 		this.language = language;
 	}
-	
+
 	@Id
 	@GeneratedValue
 	@ApiModelProperty("Identifier")
@@ -166,8 +166,8 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", description=" + description + ", unitCost=" + unitCost
-				+ ", isbn=" + isbn + ", publicationDate=" + publicationDate + ", ngOfPages=" + ngOfPages + ", imageUrl="
-				+ imageUrl + ", language=" + language + "]";
+				+ ", isbn=" + isbn + ", publicationDate=" + publicationDate + ", creationDate=" + creationDate
+				+ ", ngOfPages=" + ngOfPages + ", imageUrl=" + imageUrl + ", language=" + language + "]";
 	}
 
 }

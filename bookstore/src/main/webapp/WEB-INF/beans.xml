@@ -7,5 +7,5 @@
 	<interceptors>
 		<class>com.fortech.bookstore.util.LoggingInterceptor</class>
 	</interceptors>
-
+	
 </beans>
