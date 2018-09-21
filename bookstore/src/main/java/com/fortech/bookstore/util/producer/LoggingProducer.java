@@ -1,4 +1,4 @@
-package com.fortech.bookstore.util;
+package com.fortech.bookstore.util.producer;
 
 import java.util.logging.LogManager;
 import java.util.logging.Logger;

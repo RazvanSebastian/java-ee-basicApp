@@ -13,7 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 import com.fortech.bookstore.util.annotation.Loggable;
 
 @ServerEndpoint("/chat")
-@Loggable
+@Loggable(debug = false)
 public class ChatEndpoint {
 
 	@OnOpen

@@ -19,7 +19,7 @@ import com.fortech.bookstore.util.annotation.Generator;
 import com.fortech.bookstore.util.annotation.Generator.NumberOfDigits;
 import com.fortech.bookstore.util.annotation.Loggable;
 
-@Loggable
+@Loggable(debug = false)
 public class BookService {
 
 	@Inject
@@ -36,12 +36,16 @@ public class BookService {
 	private NumberGenerator generator;
 
 	@Transactional(value = TxType.REQUIRED)
+	@Loggable(debug = true)
 	public Book create(@NotNull Book book) {
 		book.setDescription(textUtil.sanitize(book.getDescription()));
+		logger.info("Sanitize description => " + book.getDescription());
 		book.setTitle(textUtil.sanitize(book.getTitle()));
+		logger.info("Sanitize title => " + book.getTitle());
 		book.setIsbn(generator.generateNumber());
+		logger.info("Generate isbn number => " + book.getIsbn());
 		entityManager.persist(book);
-		logger.info(" Create book : " + book.toString());
+		logger.info(" Managed object => " + book.toString());
 		return book;
 	}
 
