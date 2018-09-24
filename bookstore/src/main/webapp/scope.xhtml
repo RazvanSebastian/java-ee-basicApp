@@ -1,0 +1,29 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>JavaBean</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel value="Application scope:"></h:outputLabel>
+		<h:outputLabel value="#{counterBean.applicationCounter()}"></h:outputLabel>
+		<br/><br/>
+		<h:outputLabel value="Session scope:"></h:outputLabel>
+		<h:outputLabel value="#{counterBean.sessionCounter()}" disabled="true"></h:outputLabel>
+		<br/>
+		<h:commandLink value="End sesstion" type="button" action="#{counterBean.endSession}"></h:commandLink>
+		<br/><br/>
+		<h:outputLabel value="Conversation scope:"></h:outputLabel>
+		<h:outputLabel value="#{counterBean.conversationCounter()}" disabled="true"></h:outputLabel>
+		<br/>
+		<h:commandLink value="Begin " type="button" action="#{counterBean.startConversation}"></h:commandLink>
+		<br/>
+		<h:commandLink value="End" type="button" action="#{counterBean.endConversation}"></h:commandLink>
+		<br/><br/>
+		<h:outputLabel value="Request scope:"></h:outputLabel>
+		<h:outputLabel value="#{counterBean.requestCounter()}" disabled="true"></h:outputLabel>
+		<br/><br/>
+		<h:commandLink value="Refresh" action="#{counterBean.refresh}"></h:commandLink>
+	</h:form>
+</h:body>
+</html>
