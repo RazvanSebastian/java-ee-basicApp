@@ -1,0 +1,26 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>JavaBean</title>
+</h:head>
+<h:body>
+	<h2>#{title}</h2>
+	<h:form>
+		<h:outputLabel value="Sub-total:"></h:outputLabel>
+		<h:inputText value="#{order.subtotal}"></h:inputText>
+		<hr></hr>
+		<h:outputLabel value="Vat rate:"></h:outputLabel>
+		<h:inputText value="#{vat}%" disabled="true"></h:inputText>
+		<hr></hr>
+		<h:outputLabel value="Sub-total:"></h:outputLabel>
+		<h:inputText value="#{discount}%" disabled="true"></h:inputText>
+		<hr></hr>
+		<h:outputLabel value="Total:"></h:outputLabel>
+		<h:inputText value="#{order.total}" disabled="true"></h:inputText>
+		<hr></hr>
+
+		<h:commandButton value="Compute" type="submit"
+			action="#{order.compute}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

@@ -17,7 +17,7 @@ import com.fortech.bookstore.validator.ChronologicalDatesValdiator;
 @Constraint(validatedBy = ChronologicalDatesValdiator.class)
 public @interface ChronologicalDates {
 
-	String message() default "Date have to be in chronological order";
+	String message() default "Date has to be in chronological order";
 
 	Class<?>[] groups() default {};
 

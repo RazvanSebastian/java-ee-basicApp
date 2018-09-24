@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 
-import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.annotation.Generator;
 import com.fortech.bookstore.util.annotation.Generator.NumberOfDigits;
 

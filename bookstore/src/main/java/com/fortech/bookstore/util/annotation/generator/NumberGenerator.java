@@ -1,4 +1,4 @@
-package com.fortech.bookstore.util;
+package com.fortech.bookstore.util.annotation.generator;
 
 public interface NumberGenerator {
 	

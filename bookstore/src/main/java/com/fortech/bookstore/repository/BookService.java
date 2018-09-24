@@ -13,10 +13,10 @@ import javax.transaction.Transactional.TxType;
 import javax.validation.constraints.NotNull;
 
 import com.fortech.bookstore.model.Book;
-import com.fortech.bookstore.util.NumberGenerator;
 import com.fortech.bookstore.util.TextUtil;
 import com.fortech.bookstore.util.annotation.Generator;
 import com.fortech.bookstore.util.annotation.Generator.NumberOfDigits;
+import com.fortech.bookstore.util.annotation.generator.NumberGenerator;
 import com.fortech.bookstore.util.annotation.Loggable;
 
 @Loggable(debug = false)
