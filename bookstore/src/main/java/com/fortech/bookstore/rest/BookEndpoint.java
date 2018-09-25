@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
+import com.fortech.bookstore.decorator.Computable;
 import com.fortech.bookstore.model.Book;
 import com.fortech.bookstore.repository.BookService;
 import com.fortech.bookstore.repository.PurchaseOrderService;
@@ -37,6 +38,9 @@ public class BookEndpoint {
 
 	@Inject
 	private PurchaseOrderService orderService;
+
+	@Inject
+	private Computable purchaseOrder;
 
 	@GET
 	@Path("/count")
@@ -98,10 +102,19 @@ public class BookEndpoint {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Test the observable pattern")
 	@Path("/buy")
 	public Response purchaseOrder(List<Book> books) {
 		orderService.addItem(books);
 		return Response.status(Response.Status.NO_CONTENT).build();
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Test the decorator pattern")
+	@Path("/order")
+	public Response purchaseOrderDecorator(List<Book> books) {
+		return Response.ok("Totoal = " + purchaseOrder.compute(books),MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
 	}
 
 }

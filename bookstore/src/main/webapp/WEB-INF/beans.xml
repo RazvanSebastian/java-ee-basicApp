@@ -11,6 +11,10 @@
 	<alternatives>
 		<class>com.fortech.bookstore.modelbean.NumberProducer</class>
 	</alternatives>
+	<decorators>
+		<!-- -->
+		<class>com.fortech.bookstore.decorator.PurchaseOrderDecorator</class> 
+	</decorators>
 	
 
 </beans>
